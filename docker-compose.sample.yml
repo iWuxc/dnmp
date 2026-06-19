@@ -154,6 +154,7 @@ services:
       TZ: "$TZ"
 
   mysql5:
+ #  platform: linux/amd64  # 指定使用 amd64 平台,mac芯片m1-m4需要打开
     image: mysql:${MYSQL5_VERSION}
     container_name: mysql5
     ports:
@@ -162,7 +163,7 @@ services:
       - ${MYSQL5_CONF_FILE}:/etc/mysql/conf.d/mysql.cnf:ro
       - ${DATA_DIR}/mysql5:/var/lib/mysql/:rw
       - ${MYSQL5_LOG_DIR}:/var/log/mysql/:rw
-    restart: always
+
     networks:
       - default
     environment:
