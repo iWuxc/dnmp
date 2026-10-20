@@ -37,6 +37,8 @@ services:
       - ${PHP85_FPM_CONF_FILE}:/usr/local/etc/php-fpm.d/www.conf:rw
       - ${PHP85_LOG_DIR}:/var/log/php
       - ${DATA_DIR}/composer:/tmp/composer
+      - /Users/wuxiaochen/static/uploads:/mnt/oss/uploads:rw
+      - /Users/wuxiaochen/static/temp:/mnt/oss/temp:rw
     restart: always
     cap_add:
       - SYS_PTRACE
